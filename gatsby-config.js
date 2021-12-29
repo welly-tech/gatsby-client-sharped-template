@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`, // or '.env'
 })
 
-// TODO: 1.Setup .env file 2.Add favicon 3. robots.txt
+// TODO: 1.Setup .env file 2.Add favicon
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
