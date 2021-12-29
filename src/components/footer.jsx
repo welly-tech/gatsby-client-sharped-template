@@ -4,17 +4,19 @@ import { useSetting } from "../data/use-setting"
 import Link from "./link"
 
 export default function Footer() {
-  const { copyRight, footerImage } = useSetting()
+  const { mainUrl, copyRight, footerImage } = useSetting()
   return (
     <footer className="bg-gray-100">
       <div className="wrapper py-16 flex justify-center items-center">
         {/* Logo */}
         <div className="space-y-4">
           <div className="h-32 w-full text-center">
-            <GatsbyImage
-              alt="footer logo"
-              image={footerImage.gatsbyImageData}
-            />
+            <a href={mainUrl}>
+              <GatsbyImage
+                alt="footer logo"
+                image={footerImage.gatsbyImageData}
+              />
+            </a>
           </div>
           <div className="space-y-2 text-center">
             <p className="text-gray-900">
