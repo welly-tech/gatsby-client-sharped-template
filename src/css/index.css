@@ -1,3 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=PT+Sans:wght@700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* TODO: 把primaryColor改色 */
+.font-outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.wrapper {
+  @apply container mx-auto px-6 sm:px-8;
+}
+
+.heading {
+  @apply text-gray-900 tracking-wide font-bold;
+}
+
+.border-line {
+  @apply border-l-2 border-b-2 border-gray-900 pl-6 pb-8 sm:pl-12 sm:pb-12;
+}
+
+.gradient, .link-gradient {
+  background: linear-gradient(to bottom, transparent 50%, #fdda5a 50%);
+}
+
+.link-gradient:hover {
+  background: linear-gradient(to bottom, transparent 50%, #f5ad0b 50%);
+}
+
+.grid-auto {
+  grid-template-columns: auto repeat(2, minmax(0, 1fr));
+}
+
+.shadowed {
+  text-shadow: 0 0 2px #000;
+}
+
+.shadowed-logo {
+  text-shadow: -2px 0 #2e2e2e, 0 2px #2e2e2e, 2px 0 #2e2e2e, 0 -2px #2e2e2e;
+}
+
+.markdown {
+  @apply text-gray-900
+}
+
+.markdown p {
+  @apply text-lg leading-loose my-6;
+}
+
+.markdown h2 {
+  @apply text-3xl sm:text-4xl font-bold leading-normal tracking-[0.25rem] mt-12 mb-6 mx-0;
+  line-height: 1.5;
+}
+
+.markdown h3 {
+  @apply text-2xl sm:text-3xl tracking-wide font-bold mt-12 mb-6 mx-0;
+  line-height: 1.5;
+}
+
+.markdown h4 {
+  @apply text-xl sm:text-2xl tracking-wide font-bold mt-10 mb-6 mx-0;
+  line-height: 1.5;
+}
+
+.markdown strong {
+  background: linear-gradient(to bottom, transparent 50%, #fdda5a 50%);
+  @apply font-bold;
+}
+
+.markdown a {
+  @apply font-bold underline;
+}
+
+.markdown ol,
+.markdown ul {
+  @apply space-y-3 text-lg my-6 ml-8;
+}
+
+.markdown ol li {
+  @apply leading-7 list-decimal;
+}
+
+.markdown ul li {
+  @apply leading-7 list-disc;
+}
+
+.markdown li {
+  @apply break-words;
+}
+
+.markdown li::marker {
+  @apply text-gray-700;
+}
+
+.markdown img {
+  @apply my-12;
+}
+
+.markdown blockquote p {
+  @apply border-l-4 border-gray-900 leading-loose tracking-wide py-6 pl-6 my-12 mx-0 sm:pl-8 sm:mx-8;
+}
+
+.markdown p code {
+  @apply text-base leading-5 text-gray-500 my-12;
+}
+
+.markdown pre {
+  @apply bg-gray-100 border-2 border-gray-900 break-words px-6 py-8 sm:px-12 sm:py-12 my-12 text-left sm:text-center;
+}
+
+.markdown pre code {
+  @apply text-xl sm:text-2xl tracking-wide font-bold whitespace-pre-wrap;
+  line-height: 2;
+}
+
+.markdown table {
+  @apply w-fit my-12 mx-auto leading-7;
+}
+
+.markdown tbody {
+  @apply divide-y divide-gray-900;
+}
+
+.markdown table th {
+  @apply bg-gray-100 font-bold sm:text-lg p-2 sm:py-4 sm:px-6;
+}
+
+.markdown tr {
+  @apply divide-x divide-gray-900;
+}
+
+.markdown td {
+  @apply sm:text-lg leading-normal p-2 sm:py-4 sm:px-6;
+}
+
+.clientMarkdown h2 {
+  @apply leading-normal transition-none my-0;
+}

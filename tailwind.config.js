@@ -1,3 +1,4 @@
+// TODO: setup PrimaryColor
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -5,18 +6,18 @@ module.exports = {
       transparent: "transparent",
       white: "#FFFFFF",
       black: "#000000",
-      // primary: {
-      //   50: "#FFFBEB",
-      //   100: "#FEF3C7",
-      //   200: "#FDE68A",
-      //   300: "#FDDA5A",
-      //   400: "#FBC924",
-      //   500: "#F5AD0B",
-      //   600: "#D99006",
-      //   700: "#B47209",
-      //   800: "#925A0E",
-      //   900: "#783F0F",
-      // },
+      primary: {
+        50: "#FFFBEB",
+        100: "#FEF3C7",
+        200: "#FDE68A",
+        300: "#FDDA5A",
+        400: "#FBC924",
+        500: "#F5AD0B",
+        600: "#D99006",
+        700: "#B47209",
+        800: "#925A0E",
+        900: "#783F0F",
+      },
       gray: {
         50: "#fcfcfc",
         100: "#f7f7f7",
