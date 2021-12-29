@@ -22,11 +22,11 @@
 }
 
 .gradient, .link-gradient {
-  background: linear-gradient(to bottom, transparent 50%, #fdda5a 50%);
+  @apply underline decoration-4 decoration-primary-300 underline-offset-2;
 }
 
 .link-gradient:hover {
-  background: linear-gradient(to bottom, transparent 50%, #f5ad0b 50%);
+  @apply decoration-primary-400
 }
 
 .grid-auto {
@@ -65,8 +65,7 @@
 }
 
 .markdown strong {
-  background: linear-gradient(to bottom, transparent 50%, #fdda5a 50%);
-  @apply font-bold;
+  @apply font-bold underline decoration-4 decoration-primary-300 underline-offset-2;
 }
 
 .markdown a {
