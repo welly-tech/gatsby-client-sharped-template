@@ -13,6 +13,7 @@ export const useSetting = () => {
           author
           publisher
           copyRight
+          isButtonColorBlack
           cta {
             title
             link
