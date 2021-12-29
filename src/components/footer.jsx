@@ -1,6 +1,7 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { useSetting } from "../data/use-setting"
+import Link from "./link"
 
 export default function Footer() {
   const { copyRight, footerImage } = useSetting()
@@ -15,10 +16,18 @@ export default function Footer() {
               image={footerImage.gatsbyImageData}
             />
           </div>
-          <p className="text-gray-500 text-center">
-            Copyright © {new Date().getFullYear()} {copyRight} All rights
-            reserved.
-          </p>
+          <div className="space-y-2 text-center">
+            <p className="text-gray-900">
+              Copyright © {new Date().getFullYear()} {copyRight} All rights
+              reserved.
+            </p>
+            <p className="text-gray-500">
+              Powered by{" "}
+              <Link as="a" to="https://welly.tw">
+                Welly SEO
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

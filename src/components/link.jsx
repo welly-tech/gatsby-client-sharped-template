@@ -6,8 +6,8 @@ export default function Link({
   as = "link",
   to: destination,
   children,
-  className,
-  activeClassName,
+  className = "",
+  activeClassName = "",
 }) {
   switch (as) {
     case "a":
