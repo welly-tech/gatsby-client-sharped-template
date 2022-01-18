@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useSetting } from "../data/use-setting"
 
 export const ButtonType = {
   solid: "transition ease-in-out duration-150",
@@ -25,7 +24,6 @@ export function Button({
   size = "md",
   type = "solid",
 }) {
-  const { isButtonColorBlack } = useSetting()
   const classNames = `${ButtonType[type]} ${ButtonSize[size]}`
 
   return icon ? (
@@ -39,11 +37,7 @@ export function Button({
   ) : (
     <button
       type="button"
-      className={`${
-        isButtonColorBlack
-          ? "text-gray-900 bg-primary-300 hover:bg-primary-400 active:bg-primary-500"
-          : "text-white bg-primary-500 hover:bg-primary-400 active:bg-primary-600"
-      } ${classNames} ${className}`}
+      className={`text-white bg-primary-700 hover:bg-primary-500 active:bg-primary-900 ${classNames} ${className}`}
     >
       {children}
     </button>
