@@ -10,7 +10,6 @@ export const useSetting = () => {
           title
           titleTemplate
           description
-          author
           publisher
           copyRight
           cta {

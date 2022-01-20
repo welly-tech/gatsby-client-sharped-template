@@ -13,6 +13,7 @@ import { CTA } from "../components/cta"
 import Layout from "../components/layout"
 import Link from "../components/link"
 import { useMetadata } from "../data/use-metadata"
+import { useSetting } from "../data/use-setting"
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -21,7 +22,6 @@ import {
   TelegramIcon,
   TelegramShareButton,
 } from "react-share"
-import { useSetting } from "../data/use-setting"
 
 const Post = ({ data }) => {
   const {
@@ -68,7 +68,6 @@ const Post = ({ data }) => {
 
   const { siteUrl } = useMetadata()
   const {
-    author,
     publisher,
     logo: {
       file: { url },
@@ -120,7 +119,7 @@ const Post = ({ data }) => {
         images={[`https:${post.image.file.url}`]}
         datePublished={post.createdAt}
         dateModified={post.updatedAt}
-        authorName={author}
+        authorName={post.author.name}
         publisherName={publisher}
         publisherLogo={`https:${url}`}
         description={post?.excerpt?.excerpt}
@@ -162,38 +161,65 @@ const Post = ({ data }) => {
           <div className="divide-y divide-gray-900 text-gray-900 container mx-auto px-6 mt-6 sm:px-8 lg:w-1/2 lg:pr-0 lg:pl-8 lg:mt-0 lg:ml-[50%]">
             <div className="mb-6">
               <div className="flex justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-[2.75rem] h-[2.75rem]">
+                    {post.author.image.gatsbyImageData ? (
+                      <GatsbyImage
+                        alt={post.author.name}
+                        image={post.author.image.gatsbyImageData}
+                        className="rounded-full"
+                      />
+                    ) : (
+                      <img
+                        src={post.author.image.file.url}
+                        loading="lazy"
+                        className="rounded-full"
+                        height={44}
+                        width={44}
+                      />
+                    )}
+                  </div>
+                  <p className="text-gray-900 text-lg font-bold">
+                    {post.author.name}
+                  </p>
+                </div>
+                <div>
+                  {post.updatedAt ? (
+                    <p className="font-bold">{post.updatedAt}更新</p>
+                  ) : (
+                    <p className="font-bold">{post.createdAt}發佈</p>
+                  )}
+                  {post.updatedAt && (
+                    <p className="text-gray-500 text-xs text-right">
+                      {post.updatedAt}發佈
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="pt-6">
+              <div className="flex flex-col items-center sm:flex-row sm:justify-between mb-6 sm:mb-3 space-y-3 sm:space-y-0">
                 <Link
                   to={`/${post.topic.slug}`}
                   className="font-bold text-lg link-gradient max-w-max"
                 >
                   {post.topic.name}
                 </Link>
-                {post.updatedAt ? (
-                  <p className="text-lg font-bold">{post.updatedAt}更新</p>
-                ) : (
-                  <p className="text-lg font-bold">{post.createdAt}發佈</p>
+
+                {post?.tags && (
+                  <div className="space-x-3 flex">
+                    {post?.tags?.map(tag => {
+                      return (
+                        <p key={tag.id} className="leading-loose text-gray-500">
+                          # {tag.name}
+                        </p>
+                      )
+                    })}
+                  </div>
                 )}
               </div>
-              {post.updatedAt && (
-                <p className="text-gray-500 text-xs text-right">
-                  {post.updatedAt}發佈
-                </p>
-              )}
             </div>
-            <div className="pt-6">
-              {post?.tags && (
-                <div className="mb-3 flex space-x-3">
-                  {post?.tags?.map(tag => {
-                    return (
-                      <p key={tag.id} className="leading-loose text-gray-500">
-                        # {tag.name}
-                      </p>
-                    )
-                  })}
-                </div>
-              )}
-              <p className="text-lg !leading-loose">{post.excerpt.excerpt}</p>
-            </div>
+            <p className="text-lg !leading-loose">{post.excerpt.excerpt}</p>
           </div>
         </div>
       </div>
@@ -358,6 +384,20 @@ export const pageQuery = graphql`
       name
       updatedAt(formatString: "YYYY-MM-DD")
       createdAt(formatString: "YYYY-MM-DD")
+      author {
+        name
+        image {
+          gatsbyImageData(
+            placeholder: BLURRED
+            quality: 100
+            height: 88
+            width: 88
+          )
+          file {
+            url
+          }
+        }
+      }
       cta {
         title
         link
