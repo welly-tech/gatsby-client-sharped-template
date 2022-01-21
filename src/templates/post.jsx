@@ -184,15 +184,15 @@ const Post = ({ data }) => {
                   </p>
                 </div>
                 <div>
-                  {post.updatedAt ? (
-                    <p className="font-bold">{post.updatedAt}更新</p>
-                  ) : (
+                  {post.updatedAt === post.createdAt ? (
                     <p className="font-bold">{post.createdAt}發佈</p>
-                  )}
-                  {post.updatedAt && (
-                    <p className="text-gray-500 text-xs text-right">
-                      {post.updatedAt}發佈
-                    </p>
+                  ) : (
+                    <div>
+                      <p className="font-bold">{post.updatedAt}更新</p>
+                      <p className="text-gray-500 text-xs text-right">
+                        {post.createdAt}發佈
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>

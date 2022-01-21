@@ -160,7 +160,7 @@ export const pageQuery = graphql`
     }
 
     popularPosts: allContentfulPost(
-      filter: { topic: { slug: { eq: $slug } } }
+      filter: { topic: { slug: { eq: $slug } }, isPopularPost: { eq: true } }
       sort: { order: DESC, fields: updatedAt }
       limit: 3
     ) {
