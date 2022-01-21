@@ -218,8 +218,8 @@ const Post = ({ data }) => {
                   </div>
                 )}
               </div>
+              <p className="text-lg !leading-loose">{post.excerpt.excerpt}</p>
             </div>
-            <p className="text-lg !leading-loose">{post.excerpt.excerpt}</p>
           </div>
         </div>
       </div>
