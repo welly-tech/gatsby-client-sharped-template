@@ -22,7 +22,7 @@
 }
 
 .gradient, .link-gradient {
-  @apply underline decoration-4 decoration-primary-300 underline-offset-2;
+  @apply underline decoration-4 decoration-primary-300 underline-offset-4;
 }
 
 .link-gradient:hover {
@@ -65,7 +65,7 @@
 }
 
 .markdown strong {
-  @apply font-bold underline decoration-4 decoration-primary-300 underline-offset-2;
+  @apply font-bold underline decoration-4 decoration-primary-300 underline-offset-4;
 }
 
 .markdown a {
@@ -132,8 +132,4 @@
 
 .markdown td {
   @apply sm:text-lg leading-normal p-2 sm:py-4 sm:px-6;
-}
-
-.clientMarkdown h2 {
-  @apply leading-normal transition-none my-0;
 }
