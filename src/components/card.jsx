@@ -13,7 +13,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`text-gray-900 space-y-6 ${
+      className={`text-gray-700 space-y-6 ${
         lgFlex ? "lg:flex lg:justify-center lg:space-y-0 lg:space-x-12" : ""
       } ${lgGrid ? "lg:grid grid-cols-2 lg:space-y-0 lg:gap-12" : ""}`}
     >
@@ -69,7 +69,7 @@ export function Card({
 
 export function BasicCard({ data }) {
   return (
-    <div className="text-gray-900 space-y-4">
+    <div className="text-gray-700 space-y-4">
       <div className="flex space-x-6 text-lg">
         <Link
           to={`/${data.topic.slug}`}
@@ -79,7 +79,7 @@ export function BasicCard({ data }) {
         </Link>
         <p className="text-gray-500">{data.updatedAt}</p>
       </div>
-      <div className="divide-y divide-gray-900">
+      <div className="divide-y divide-gray-500">
         <Link to={`/${data.topic.slug}/${data.slug}`}>
           <p className="text-3xl tracking-wide !leading-normal font-bold">
             {data.name}

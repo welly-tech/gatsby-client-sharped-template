@@ -134,7 +134,7 @@ const Post = ({ data }) => {
           {/* Post Image + Post Heading */}
           <div className="grid grid-cols-6 relative overflow-hidden lg:static lg:container lg:mx-auto lg:pl-0">
             <div className="bg-white col-start-2 lg:col-start-1 col-span-5 px-6 pb-6 sm:px-12 sm:pb-12 mb-24 sm:mb-36 lg:mb-0 z-10">
-              <h1 className="text-gray-900 text-3xl sm:text-6xl font-bold tracking-wide !leading-normal">
+              <h1 className="text-gray-700 text-3xl sm:text-6xl font-bold tracking-wide !leading-normal">
                 {post.name}
               </h1>
             </div>
@@ -158,7 +158,7 @@ const Post = ({ data }) => {
           </div>
 
           {/* Post Excerpt */}
-          <div className="divide-y divide-gray-900 text-gray-900 container mx-auto px-6 mt-6 sm:px-8 lg:w-1/2 lg:pr-0 lg:pl-8 lg:mt-0 lg:ml-[50%]">
+          <div className="divide-y divide-gray-500 text-gray-700 container mx-auto px-6 mt-6 sm:px-8 lg:w-1/2 lg:pr-0 lg:pl-8 lg:mt-0 lg:ml-[50%]">
             <div className="mb-6">
               <div className="flex justify-between">
                 <div className="flex items-center space-x-3">
@@ -179,7 +179,7 @@ const Post = ({ data }) => {
                       />
                     )}
                   </div>
-                  <p className="text-gray-900 text-lg font-bold">
+                  <p className="text-gray-700 text-lg font-bold">
                     {post.author.name}
                   </p>
                 </div>
@@ -227,7 +227,7 @@ const Post = ({ data }) => {
       <div className="wrapper lg:px-0 lg:max-w-[48rem]">
         {/* Post Toc */}
         <div className="mt-12 sm:mt-16">
-          <div className="p-6 sm:p-12 bg-gray-100 text-gray-900">
+          <div className="p-6 sm:p-12 bg-gray-100 text-gray-700">
             <h2 className="mx-auto leading-normal tracking-wide font-bold text-2xl gradient max-w-max">
               快速跳轉目錄
             </h2>
@@ -342,7 +342,7 @@ const Post = ({ data }) => {
                 return (
                   <div
                     key={post.id}
-                    className="p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:border-gray-900"
+                    className="p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:border-gray-700"
                   >
                     <Card data={post} />
                   </div>

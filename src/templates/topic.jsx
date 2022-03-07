@@ -64,10 +64,10 @@ const TopicPage = ({ data }) => {
       </div>
 
       {/* Body */}
-      <div className="wrapper space-y-24 sm:space-y-36 pb-24 sm:pb-36 border-b border-gray-900">
+      <div className="wrapper space-y-24 sm:space-y-36 pb-24 sm:pb-36 border-b border-gray-500">
         {/* 簡述 */}
         <div className="max-w-5xl mx-auto mt-16">
-          <p className="border-line text-gray-900 text-xl leading-loose tracking-wide">
+          <p className="border-line text-gray-700 text-xl leading-loose tracking-wide">
             {topic.excerpt.excerpt}
           </p>
         </div>
@@ -102,7 +102,7 @@ const TopicPage = ({ data }) => {
                 return (
                   <div
                     key={post.id}
-                    className="p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:bordergray-900"
+                    className="p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:border-gray-700"
                   >
                     <Card data={post} />
                   </div>

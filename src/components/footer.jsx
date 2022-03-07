@@ -19,7 +19,7 @@ export default function Footer() {
             </a>
           </div>
           <div className="space-y-2 text-center">
-            <p className="text-gray-900">
+            <p className="text-gray-700">
               Copyright © {new Date().getFullYear()} {copyRight} All rights
               reserved.
             </p>
