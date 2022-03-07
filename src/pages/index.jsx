@@ -85,9 +85,9 @@ const IndexPage = ({ data }) => {
                   <Link
                     to={`/${topic.slug}`}
                     key={topic.id}
-                    className="relative"
+                    className="relative w-full flex justify-center items-center"
                   >
-                    <p className="absolute bg-white text-gray-900 z-10 bottom-0 right-0 font-bold text-xl sm:text-2xl px-6 sm:px-8 py-3 sm:py-4">
+                    <p className="absolute text-white z-10 font-bold text-xl sm:text-2xl">
                       {topic.name}
                     </p>
                     <div className="relative">
@@ -96,7 +96,7 @@ const IndexPage = ({ data }) => {
                         image={topic.image.gatsbyImageData}
                         className="h-24 sm:h-32 w-full rounded-lg"
                       />
-                      <div className="absolute inset-0 bg-gray-900 opacity-25 hover:opacity-50 transition ease-in-out duration-300" />
+                      <div className="absolute inset-0 bg-gray-900 rounded-lg opacity-25 hover:opacity-50 transition ease-in-out duration-300" />
                     </div>
                   </Link>
                 )
