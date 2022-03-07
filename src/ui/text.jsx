@@ -5,7 +5,7 @@ export function Text({ as = "leading", className, text }) {
   switch (as) {
     case "h2":
       return (
-        <h2 className={`heading text-4xl sm:text-5xl ${className}`}>{text}</h2>
+        <h2 className={`heading text-3xl sm:text-4xl ${className}`}>{text}</h2>
       )
     default:
       return (

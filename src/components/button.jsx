@@ -6,7 +6,7 @@ export const ButtonType = {
   outline:
     "text-gray-700 border border-gray-500 bg-white hover:bg-gray-900 hover:text-white active:bg-gray-800 transition ease-in-out duration-150",
   ghost:
-    "text-gray-500 hover:text-gray-900 transition ease-in-out duration-300",
+    "text-gray-500 hover:text-gray-700 transition ease-in-out duration-300",
 }
 
 export const ButtonSize = {
