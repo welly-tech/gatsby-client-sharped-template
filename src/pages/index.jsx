@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           {/* 文章分類 */}
-          <div className="text-center lg:text-left divide-y divide-gray-900">
+          <div className="text-center lg:text-left divide-y divide-gray-500">
             <Text as="h2" text="文章分類" className="lg:text-2xl mb-4" />
             <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-1 pt-12">
               {topics.map(topic => {
