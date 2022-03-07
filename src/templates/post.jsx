@@ -342,7 +342,7 @@ const Post = ({ data }) => {
                 return (
                   <div
                     key={post.id}
-                    className="p-6 border border-gray-300 transition ease-in-out duration-500 hover:border-b hover:border-l hover:border-l-gray-900 hover:border-b-gray-900"
+                    className="p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:border-gray-900"
                   >
                     <Card data={post} />
                   </div>
