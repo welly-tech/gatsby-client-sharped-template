@@ -68,7 +68,7 @@ const IndexPage = ({ data }) => {
                 return (
                   <div
                     key={post.id}
-                    className="col-span-1 p-6 border border-gray-300 transition ease-in-out duration-500 hover:border-b hover:border-l hover:border-l-gray-900 hover:border-b-gray-900"
+                    className="col-span-1 p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:border-b hover:border-l hover:border-l-gray-900 hover:border-b-gray-900"
                   >
                     <Card data={post} />
                   </div>
@@ -94,7 +94,7 @@ const IndexPage = ({ data }) => {
                       <GatsbyImage
                         alt={topic.name}
                         image={topic.image.gatsbyImageData}
-                        className="h-24 sm:h-32 w-full"
+                        className="h-24 sm:h-32 w-full rounded-lg"
                       />
                       <div className="absolute inset-0 bg-gray-900 opacity-25 hover:opacity-50 transition ease-in-out duration-300" />
                     </div>

@@ -22,7 +22,9 @@ export function Card({
           <GatsbyImage
             alt={data.name}
             image={data.image.gatsbyImageData}
-            className={`w-full h-full ${fixedWidth ? "lg:w-96" : "w-full"}`}
+            className={`w-full h-full rounded-lg ${
+              fixedWidth ? "lg:w-96" : "w-full"
+            }`}
           />
         </div>
       </Link>

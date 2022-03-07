@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export const ButtonType = {
-  solid: "transition ease-in-out duration-150",
+  solid: "transition ease-in-out duration-150 rounded",
   outline:
     "text-gray-900 border border-gray-900 bg-white hover:bg-gray-900 hover:text-white active:bg-gray-800 transition ease-in-out duration-150",
   ghost:
