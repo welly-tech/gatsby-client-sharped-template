@@ -359,7 +359,10 @@ const Post = ({ data }) => {
             <div className="grid gap-12 mt-12 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
               {latestPosts.map(post => {
                 return (
-                  <div key={post.id}>
+                  <div
+                    key={post.id}
+                    className="border-t border-t-gray-500 pt-9"
+                  >
                     <BasicCard data={post} />
                   </div>
                 )

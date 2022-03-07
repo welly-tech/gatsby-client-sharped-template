@@ -48,7 +48,7 @@ const IndexPage = ({ data }) => {
               )
             } else {
               return (
-                <div key={post.id}>
+                <div key={post.id} className="border-t border-t-gray-500 pt-9">
                   <BasicCard data={post} />
                 </div>
               )
