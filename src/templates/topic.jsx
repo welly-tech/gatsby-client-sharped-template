@@ -7,6 +7,7 @@ import { Breadcrumb } from "../components/breadcrumb"
 import { Card } from "../components/card"
 import { Text } from "../ui"
 import Layout from "../components/layout"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const TopicPage = ({ data }) => {
   const { contentfulTopic: topic } = data
@@ -47,31 +48,31 @@ const TopicPage = ({ data }) => {
         </div>
       </div>
 
-      {/* 首圖 */}
-      <div
-        className="h-40 sm:h-96 bg-no-repeat bg-right"
-        style={{
-          backgroundImage: `url(https:${topic.image.file.url})`,
-          backgroundSize: "80%",
-        }}
-      >
-        <h1
-          className="flex items-center h-full wrapper heading text-5xl lg:text-8xl shadowed-logo"
-          style={{ color: "white" }}
-        >
-          {topic.name}
-        </h1>
+      {/* Landing */}
+      <div className="relative">
+        <div className="pt-24 sm:pt-[18rem]">
+          {/* 首圖 */}
+          <div className="absolute top-0 -z-10 h-full w-full">
+            <GatsbyImage
+              className="h-full w-full"
+              alt={topic.name}
+              image={topic.image.gatsbyImageData}
+              loading="eager"
+            />
+          </div>
+          <div className="wrapper">
+            <div className="bg-white text-gray-900 rounded-t-lg pt-6 px-6 sm:pt-12 sm:px-12 space-y-6">
+              <h1 className="font-bold text-3xl sm:text-5xl leading-normal tracking-wide">
+                {topic.name}
+              </h1>
+              <p className="text-lg leading-loose">{topic.excerpt.excerpt}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Body */}
-      <div className="wrapper space-y-24 sm:space-y-36 pb-24 sm:pb-36 border-b border-gray-500">
-        {/* 簡述 */}
-        <div className="max-w-5xl mx-auto mt-16">
-          <p className="border-line text-gray-700 text-xl leading-loose tracking-wide">
-            {topic.excerpt.excerpt}
-          </p>
-        </div>
-
+      <div className="wrapper space-y-24 sm:space-y-36 mt-12 sm:mt-16 lg:mt-24 pb-24 sm:pb-36 border-b border-gray-500">
         {/* 熱門文章 */}
         {popularPosts.length > 0 && (
           <div className="space-y-12 sm:space-y-16">
@@ -131,6 +132,7 @@ export const pageQuery = graphql`
         excerpt
       }
       image {
+        gatsbyImageData(placeholder: BLURRED, quality: 100)
         file {
           url
         }
