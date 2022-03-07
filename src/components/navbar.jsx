@@ -8,7 +8,7 @@ export default function Navbar() {
   const { mainUrl, cta, logo } = useSetting()
 
   return (
-    <nav className="fixed w-full bg-white h-16 z-20 border-b border-gray-500">
+    <nav className="fixed w-full bg-white h-16 z-20 border-b border-gray-300">
       <div className="wrapper">
         <div className="flex justify-between h-16">
           <div className="flex items-center">

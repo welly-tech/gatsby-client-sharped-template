@@ -89,6 +89,8 @@ const Post = ({ data }) => {
     },
   ]
 
+  console.log(post.updatedAt, post.createdAt)
+
   return (
     <Layout>
       <GatsbySeo
@@ -129,83 +131,93 @@ const Post = ({ data }) => {
       </div>
 
       {/* Post Header */}
-      <div className="lg:relative">
-        <div className="relative lg:static lg:container lg:mx-auto lg:px-8">
-          {/* Post Image + Post Heading */}
-          <div className="grid grid-cols-6 relative overflow-hidden lg:static lg:container lg:mx-auto lg:pl-0">
-            <div className="bg-white col-start-2 lg:col-start-1 col-span-5 px-6 pb-6 sm:px-12 sm:pb-12 mb-24 sm:mb-36 lg:mb-0 z-10">
-              <h1 className="text-gray-700 text-3xl sm:text-6xl font-bold tracking-wide !leading-normal">
-                {post.name}
-              </h1>
-            </div>
-            <div className="block absolute left-0 h-full sm:hidden">
-              <GatsbyImage
-                alt={post.name}
-                image={post.image.gatsbyImageData}
-                loading="eager"
-                className="h-full sm:hidden"
-                imgStyle={{ objectFit: "cover" }}
-              />
-            </div>
-            <div className="hidden sm:block absolute left-0 h-full lg:w-1/2">
-              <GatsbyImage
-                alt={post.name}
-                image={post.image.gatsbyImageData}
-                className="hidden sm:block w-full h-full"
-                imgStyle={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
+      <div>
+        {/* Post Image + Post Heading */}
+        {/*<div>*/}
+        {/*  <div className="bg-white col-start-2 lg:col-start-1 col-span-5 px-6 pb-6 sm:px-12 sm:pb-12 mb-24 sm:mb-36 lg:mb-0 z-10">*/}
+        {/*    <h1 className="text-gray-700 text-3xl sm:text-6xl font-bold tracking-wide !leading-normal">*/}
+        {/*      {post.name}*/}
+        {/*    </h1>*/}
+        {/*  </div>*/}
+        {/*  <div className="block absolute left-0 h-full sm:hidden">*/}
+        {/*    <GatsbyImage*/}
+        {/*      alt={post.name}*/}
+        {/*      image={post.image.gatsbyImageData}*/}
+        {/*      loading="eager"*/}
+        {/*      className="h-full sm:hidden"*/}
+        {/*      imgStyle={{ objectFit: "cover" }}*/}
+        {/*    />*/}
+        {/*  </div>*/}
+        {/*  <div className="hidden sm:block absolute left-0 h-full lg:w-1/2">*/}
+        {/*    <GatsbyImage*/}
+        {/*      alt={post.name}*/}
+        {/*      image={post.image.gatsbyImageData}*/}
+        {/*      className="hidden sm:block w-full h-full"*/}
+        {/*      imgStyle={{ objectFit: "cover" }}*/}
+        {/*    />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
 
-          {/* Post Excerpt */}
-          <div className="divide-y divide-gray-500 text-gray-700 container mx-auto px-6 mt-6 sm:px-8 lg:w-1/2 lg:pr-0 lg:pl-8 lg:mt-0 lg:ml-[50%]">
-            <div className="mb-6">
-              <div className="flex justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-[2.75rem] h-[2.75rem]">
-                    {post.author.image.gatsbyImageData ? (
-                      <GatsbyImage
-                        alt={post.author.name}
-                        image={post.author.image.gatsbyImageData}
-                        className="rounded-full"
-                      />
-                    ) : (
-                      <img
-                        src={post.author.image.file.url}
-                        loading="lazy"
-                        className="rounded-full"
-                        height={44}
-                        width={44}
-                      />
-                    )}
-                  </div>
-                  <p className="text-gray-700 text-lg font-bold">
-                    {post.author.name}
-                  </p>
-                </div>
-                <div>
+        {/* Post Excerpt */}
+        <div className="divide-y divide-gray-300 text-gray-700 container mx-auto mt-8 sm:mt-12 lg:mt-16 px-6 sm:px-8">
+          <div className="mb-6">
+            <div className="flex space-x-3 sm:space-x-4">
+              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px]">
+                {post.author.image.gatsbyImageData ? (
+                  <GatsbyImage
+                    alt={post.author.name}
+                    image={post.author.image.gatsbyImageData}
+                    className="rounded-full"
+                  />
+                ) : (
+                  <img
+                    src={post.author.image.file.url}
+                    loading="lazy"
+                    className="rounded-full"
+                    height={44}
+                    width={44}
+                    alt={post.author.name}
+                  />
+                )}
+              </div>
+              <div>
+                <p className="text-gray-700 font-bold leading-loose tracking-wide">
+                  {post.author.name}
+                </p>
+                <div className="text-gray-500">
                   {post.updatedAt === post.createdAt ? (
-                    <p className="font-bold">{post.createdAt}發佈</p>
+                    <p className="font-bold text-sm">{post.createdAt}更新</p>
                   ) : (
-                    <div>
-                      <p className="font-bold">{post.updatedAt}更新</p>
-                      <p className="text-gray-500 text-xs text-right">
-                        {post.createdAt}發佈
-                      </p>
+                    <div className="flex space-x-2 items-baseline">
+                      <p className="font-bold text-sm">{post.updatedAt}更新</p>
+                      <p className="text-xs">{post.createdAt}發佈</p>
                     </div>
                   )}
                 </div>
               </div>
             </div>
-            <div className="pt-6">
+          </div>
+          <div className="pt-6">
+            <h1 className="text-gray-700 text-3xl sm:text-6xl font-bold tracking-wide !leading-normal">
+              {post.name}
+            </h1>
+            <div className="mt-4 aspect-video">
+              <GatsbyImage
+                alt={post.name}
+                image={post.image.gatsbyImageData}
+                loading="eager"
+                className="h-full"
+                objectFit={"cover"}
+              />
+            </div>
+            <div className="mt-6 border border-primary-500 p-6 rounded-lg">
               <div className="flex flex-col items-center sm:flex-row sm:justify-between mb-6 sm:mb-3 space-y-3 sm:space-y-0">
                 <Link
                   to={`/${post.topic.slug}`}
-                  className="font-bold text-lg link-gradient max-w-max"
+                  className="font-bold text-lg text-primary-500 hover:text-primary-700"
                 >
                   {post.topic.name}
                 </Link>
-
                 {post?.tags && (
                   <div className="space-x-3 flex">
                     {post?.tags?.map(tag => {
@@ -228,7 +240,7 @@ const Post = ({ data }) => {
         {/* Post Toc */}
         <div className="mt-12 sm:mt-16">
           <div className="p-6 sm:p-12 bg-gray-100 text-gray-700">
-            <h2 className="mx-auto leading-normal tracking-wide font-bold text-2xl gradient max-w-max">
+            <h2 className="text-center leading-normal tracking-wide font-bold text-2xl text-primary-500">
               快速跳轉目錄
             </h2>
             <ol className="space-y-3 mt-8 text-lg leading-normal list-decimal list-inside">

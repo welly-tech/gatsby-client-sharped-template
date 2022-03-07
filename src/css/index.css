@@ -65,11 +65,11 @@
 }
 
 .markdown strong {
-  @apply font-bold underline decoration-4 decoration-primary-300 underline-offset-4;
+  @apply font-bold underline decoration-4 decoration-primary-500 underline-offset-4;
 }
 
 .markdown a {
-  @apply font-bold underline;
+  @apply font-bold underline decoration-4 decoration-primary-500 underline-offset-4;
 }
 
 .markdown ol,
