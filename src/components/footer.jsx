@@ -5,6 +5,7 @@ import Link from "./link"
 
 export default function Footer() {
   const { mainUrl, copyRight, footerImage } = useSetting()
+
   return (
     <footer className="bg-gray-100">
       <div className="wrapper py-16 flex justify-center items-center">
@@ -12,10 +13,18 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="h-32 w-full text-center">
             <a href={mainUrl}>
-              <GatsbyImage
-                alt="footer logo"
-                image={footerImage.gatsbyImageData}
-              />
+              {footerImage.gatsbyImageData ? (
+                <GatsbyImage
+                  alt="footer logo"
+                  image={footerImage.gatsbyImageData}
+                />
+              ) : (
+                <img
+                  src={footerImage.file.url}
+                  alt="footer logo"
+                  className="h-32 mx-auto"
+                />
+              )}
             </a>
           </div>
           <div className="space-y-2 text-center">

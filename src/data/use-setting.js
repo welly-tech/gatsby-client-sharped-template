@@ -28,6 +28,9 @@ export const useSetting = () => {
             gatsbyImageData(quality: 100, placeholder: BLURRED, height: 36)
           }
           footerImage {
+            file {
+              url
+            }
             gatsbyImageData(quality: 100, placeholder: BLURRED, height: 128)
           }
           # 後台有預留facebookAppId欄位

@@ -20,7 +20,7 @@ export function CTA({
         )}
         <div className="flex justify-center">
           <Link as="a" to={destination}>
-            <Button>{title}</Button>
+            <Button className="contact">{title}</Button>
           </Link>
         </div>
       </div>
