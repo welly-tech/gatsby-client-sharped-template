@@ -8,7 +8,7 @@ const LatestPost = ({ topic }) => {
     return (
       <div
         key={post.id}
-        className="p-6 border border-gray-300 rounded-lg transition ease-in-out duration-500 hover:border-gray-700"
+        className="p-6 border border-gray-300 transition ease-in-out duration-500 hover:border-gray-700"
       >
         <Card data={post} />
       </div>

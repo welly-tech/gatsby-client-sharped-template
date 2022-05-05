@@ -26,9 +26,7 @@ const Card = ({ data, lgFlex = false, lgGrid = false, fixedWidth = false }) => {
           <GatsbyImage
             alt={name}
             image={gatsbyImageData}
-            className={`w-full h-full rounded-lg ${
-              fixedWidth ? "lg:w-96" : "w-full"
-            }`}
+            className={`w-full h-full ${fixedWidth ? "lg:w-96" : "w-full"}`}
           />
         </div>
       </Link>
