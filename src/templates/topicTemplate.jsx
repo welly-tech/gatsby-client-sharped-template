@@ -3,10 +3,12 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { GatsbySeo } from "gatsby-plugin-next-seo"
 import { useMetadata } from "../data/use-metadata"
-import { Breadcrumb } from "../components/breadcrumb"
-import { Card } from "../components/card"
-import { Text } from "../ui"
+import Breadcrumb from "../components/breadcrumb"
 import Layout from "../components/layout"
+import PopularPost from "../components/topic/PopularPost"
+import LatestPost from "../components/topic/LatestPost"
+import HeaderImage from "../components/topic/HeaderImage"
+import Excerpt from "../components/topic/Excerpt"
 
 const TopicPage = ({ data }) => {
   const { contentfulTopic: topic } = data
@@ -34,9 +36,9 @@ const TopicPage = ({ data }) => {
         description={topic.excerpt.excerpt}
         canonical={canonical}
         openGraph={{
-          url: `${canonical}`,
-          title: `${topic.name}`,
-          description: `${topic.excerpt.excerpt}`,
+          url: canonical,
+          title: topic.name,
+          description: topic.excerpt.excerpt,
           images: [{ url: `https:${topic.image.file.url}` }],
         }}
       />
@@ -48,69 +50,18 @@ const TopicPage = ({ data }) => {
       </div>
 
       {/* 首圖 */}
-      <div
-        className="h-40 sm:h-96 bg-no-repeat bg-right"
-        style={{
-          backgroundImage: `url(https:${topic.image.file.url})`,
-          backgroundSize: "80%",
-        }}
-      >
-        <h1
-          className="flex items-center h-full wrapper heading text-5xl lg:text-8xl shadowed-logo"
-          style={{ color: "white" }}
-        >
-          {topic.name}
-        </h1>
-      </div>
+      <HeaderImage topic={topic} />
 
       {/* Body */}
       <div className="wrapper space-y-24 sm:space-y-36 pb-24 sm:pb-36 border-b border-gray-900">
         {/* 簡述 */}
-        <div className="max-w-5xl mx-auto mt-16">
-          <p className="border-line text-gray-900 text-xl leading-loose tracking-wide">
-            {topic.excerpt.excerpt}
-          </p>
-        </div>
+        <Excerpt topic={topic} />
 
         {/* 熱門文章 */}
-        {popularPosts.length > 0 && (
-          <div className="space-y-12 sm:space-y-16">
-            <Text as="h2" text="熱門文章" className="text-center" />
-            <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-1">
-              {popularPosts.map((post, idx) => {
-                return (
-                  <div
-                    key={post.id}
-                    className={`p-6 border border-gray-300 ${
-                      idx === 0 ? "sm:col-span-2 lg:col-span-1" : ""
-                    }`}
-                  >
-                    <Card data={post} lgFlex={true} fixedWidth={true} />
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
+        <PopularPost popularPosts={popularPosts} />
 
         {/* 最新文章 */}
-        {topic?.latestPosts && (
-          <div className="space-y-12 sm:space-y-16">
-            <Text as="h2" text="最新文章" className="text-center" />
-            <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-              {topic?.latestPosts?.map(post => {
-                return (
-                  <div
-                    key={post.id}
-                    className="p-6 border border-gray-300 transition ease-in-out duration-500 hover:border-b hover:border-l hover:border-l-gray-900 hover:border-b-gray-900"
-                  >
-                    <Card data={post} />
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
+        <LatestPost topic={topic} />
       </div>
     </Layout>
   )
