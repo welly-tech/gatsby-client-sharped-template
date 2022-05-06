@@ -1,11 +1,15 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { useSetting } from "../data/use-setting"
 import { Button } from "./button"
 import Link from "./link"
+import PropTypes from "prop-types"
 
-export default function Navbar() {
-  const { mainUrl, cta, logo } = useSetting()
+const Navbar = ({ mainUrl, cta, logo }) => {
+  const {
+    gatsbyImageData,
+    file: { url },
+  } = logo
+  const { title, link } = cta
 
   return (
     <nav className="fixed w-full bg-white h-16 z-20 border-b border-gray-300">
@@ -13,19 +17,19 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <a href={mainUrl}>
-              {logo.gatsbyImageData ? (
-                <GatsbyImage image={logo?.gatsbyImageData} alt="logo" />
+              {gatsbyImageData ? (
+                <GatsbyImage image={gatsbyImageData} alt="logo" />
               ) : (
-                <img src={logo.file.url} alt="logo" className="h-6 sm:h-9" />
+                <img src={url} alt="logo" className="h-6 sm:h-9" />
               )}
             </a>
           </div>
 
           {/* CTA按鈕 */}
-          <div className="flex items-center">
-            <Link as="a" to={cta.link}>
+          <div className="hidden sm:flex sm:items-center">
+            <Link as="a" to={link}>
               <Button size="base" className="fix_button">
-                {cta.title}
+                {title}
               </Button>
             </Link>
           </div>
@@ -34,3 +38,11 @@ export default function Navbar() {
     </nav>
   )
 }
+
+Navbar.propTypes = {
+  mainUrl: PropTypes.string,
+  cta: PropTypes.object,
+  logo: PropTypes.object,
+}
+
+export default Navbar
