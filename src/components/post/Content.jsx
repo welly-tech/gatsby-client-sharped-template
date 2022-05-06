@@ -4,11 +4,19 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const MarkdownContent = ({ content }) => {
-  return (
-    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-      {content?.content?.content}
-    </ReactMarkdown>
-  )
+  if (content?.content?.content) {
+    return (
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+        {content?.content?.content}
+      </ReactMarkdown>
+    )
+  } else if (content?.subContent?.subContent) {
+    return (
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+        {content?.subContent?.subContent}
+      </ReactMarkdown>
+    )
+  }
 }
 
 const PrimaryContent = ({ content }) => {
