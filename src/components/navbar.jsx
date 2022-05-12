@@ -3,8 +3,10 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Button } from "./button"
 import Link from "./link"
 import PropTypes from "prop-types"
+import { useSetting } from "../data/use-setting"
 
-const Navbar = ({ mainUrl, cta, logo }) => {
+const Navbar = () => {
+  const { mainUrl, cta, logo } = useSetting()
   const {
     gatsbyImageData,
     file: { url },
